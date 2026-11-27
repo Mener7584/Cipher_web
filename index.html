@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Сторінка входу • Шифрування даних</title>
+
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="data:," />
+        <script type="module" src="scripts/auth-page.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <h1>Сторінка входу</h1>
+
+            <p class="lead">
+                Авторизація та реєстрація користувачів навчального web-застосунку.
+            </p>
+
+            <div class="auth-layout">
+                <nav class="auth-switch" aria-label="Режим авторизації">
+                    <button type="button" data-auth-tab="login" aria-pressed="true">Увійти</button>
+                    <button type="button" data-auth-tab="register" aria-pressed="false">Реєстрація</button>
+                </nav>
+
+                <form class="auth-form" data-login-form>
+                    <fieldset>
+                        <legend>Увійти в аккаунт</legend>
+
+                        <label class="form-field">
+                            E-mail або логін адміністратора
+                            <input
+                                type="text"
+                                name="identity"
+                                placeholder="name@example.com або admin"
+                                autocomplete="username"
+                                required
+                            />
+                        </label>
+
+                        <label class="form-field">
+                            Пароль
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="Введіть ваш пароль"
+                                autocomplete="current-password"
+                                required
+                            />
+                        </label>
+
+                        <label>
+                            <input type="checkbox" data-show-password="login" />
+                            Показати пароль
+                        </label>
+
+                        <div class="form-actions">
+                            <button type="submit">Увійти</button>
+                        </div>
+                    </fieldset>
+                    <p class="status" data-login-status role="status" aria-live="polite"></p>
+                </form>
+
+                <form class="auth-form" data-register-form hidden>
+                    <fieldset>
+                        <legend>Створити обліковий запис</legend>
+
+                        <label class="form-field">
+                            Ім'я
+                            <input
+                                type="text"
+                                name="firstName"
+                                placeholder="Наприклад, Тарас"
+                                autocomplete="given-name"
+                                pattern="^[A-ZА-ЯІЇЄҐ][A-Za-zА-Яа-яіІїЄєҐґ'’ -]*$"
+                                title="Перша літера має бути великою. Дозволені українські та англійські літери."
+                                required
+                            />
+                        </label>
+
+                        <label class="form-field">
+                            Прізвище
+                            <input
+                                type="text"
+                                name="lastName"
+                                placeholder="Наприклад, Шевченко"
+                                autocomplete="family-name"
+                                pattern="^[A-ZА-ЯІЇЄҐ][A-Za-zА-Яа-яіІїЄєҐґ'’ -]*$"
+                                title="Перша літера має бути великою. Дозволені українські та англійські літери."
+                                required
+                            />
+                        </label>
+
+                        <label class="form-field">
+                            E-mail
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="name@example.com"
+                                autocomplete="email"
+                                required
+                            />
+                        </label>
+
+                        <label class="form-field">
+                            Пароль
+                            <input
+                                type="password"
+                                name="password"
+                                autocomplete="new-password"
+                                minlength="8"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$"
+                                title="Щонайменше 8 символів: одна велика літера, одна мала літера, одна цифра та один спецсимвол (!@#$%^&*)."
+                                required
+                            />
+                        </label>
+
+                        <label class="form-field">
+                            Підтвердження пароля
+                            <input
+                                type="password"
+                                name="passwordConfirm"
+                                autocomplete="new-password"
+                                required
+                            />
+                        </label>
+
+                        <label>
+                            <input type="checkbox" data-show-password="register" />
+                            Показати пароль
+                        </label>
+
+                        <div class="form-actions">
+                            <button type="submit">Зареєструватися</button>
+                        </div>
+                    </fieldset>
+                    <p class="status" data-register-status role="status" aria-live="polite"></p>
+                    <p class="helper">
+                        Пароль не зберігається у відкритому вигляді: для перевірки використовується PBKDF2.
+                    </p>
+                </form>
+
+                <section class="panel">
+                    <h2>Тестовий адміністратор</h2>
+                    <p class="muted">Обліковий запис створюється в IndexedDB під час першого запуску.</p>
+                    <dl class="info-grid">
+                        <div class="info-item">
+                            <dt>Логін</dt>
+                            <dd><code>admin</code></dd>
+                        </div>
+                        <div class="info-item">
+                            <dt>Пароль</dt>
+                            <dd><code>Admin123!</code></dd>
+                        </div>
+                    </dl>
+                </section>
+
+                <p class="helper">
+                    Окрема демонстрація алгоритму: <a href="../rot13/index.html">ROT13</a>.
+                </p>
+            </div>
+
+            <noscript>
+                <p class="status" data-state="error">Для роботи застосунку потрібно увімкнути JavaScript.</p>
+            </noscript>
+        </main>
+
+        <footer class="footer">
+            <p>Коряченко Денис Вікторович • Шифрування даних <strong lang="en">web</strong></p>
+            <p>Написано на: <span lang="en">HTML • CSS • JS</span></p>
+        </footer>
+    </body>
+</html>

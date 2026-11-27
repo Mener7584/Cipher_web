@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>ROT13 • Шифрування даних</title>
+
+        <link rel="stylesheet" href="../project_name/style.css" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="data:," />
+        <script type="module" src="script.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <h1>ROT13</h1>
+
+            <nav class="page-nav" aria-label="Навігація">
+                <a href="../project_name/index.html">Авторизація</a>
+                <a href="../project_name/user.html">Кабінет користувача</a>
+            </nav>
+
+            <section class="rot13-panel">
+                <p>
+                    Введіть текст для перетворення. ROT13 зміщує кожну латинську літеру на 13 позицій;
+                    цифри, пробіли, українські літери та розділові знаки залишаються без змін.
+                </p>
+
+                <label class="rot13-field">
+                    Початковий текст
+                    <textarea rows="6" data-rot13-input placeholder="Введіть текст..."></textarea>
+                </label>
+
+                <div class="rot13-actions">
+                    <button type="button" class="button" data-encode>Перетворити ROT13</button>
+                    <button type="button" data-decode>Зворотне перетворення</button>
+                    <button type="button" data-clear>Очистити</button>
+                </div>
+
+                <label class="rot13-field">
+                    Результат
+                    <textarea rows="6" data-rot13-output readonly placeholder="Тут з'явиться результат..."></textarea>
+                </label>
+
+                <div class="rot13-actions">
+                    <button type="button" data-copy>Копіювати результат</button>
+                </div>
+                <p class="rot13-status" data-rot13-status role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="rot13-panel">
+                <h2>Принцип роботи</h2>
+                <pre class="code-block">ROT13(ROT13(text)) = text</pre>
+                <p>
+                    ROT13 є симетричним оборотним перетворенням, але не є безпечним криптографічним
+                    алгоритмом: його можна відновити без ключа, оскільки зсув завжди дорівнює 13.
+                </p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Коряченко Денис Вікторович • Шифрування даних <strong lang="en">web</strong></p>
+            <p>Написано на: <span lang="en">HTML • CSS • JS</span></p>
+        </footer>
+    </body>
+</html>

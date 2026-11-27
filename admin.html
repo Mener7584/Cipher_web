@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Адміністратор • Шифрування даних</title>
+
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="data:," />
+        <script type="module" src="scripts/admin.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <h1>Сторінка адміністратора</h1>
+
+            <nav class="page-nav" aria-label="Навігація">
+                <a href="admin.html" aria-current="page">Адміністратор</a>
+                <a href="../rot13/index.html">ROT13</a>
+                <button type="button" data-logout>Вийти</button>
+            </nav>
+
+            <section class="content-stack">
+                <div>
+                    <h2>Зареєстровані користувачі</h2>
+                    <p class="muted">
+                        Дані читаються з Local Storage та декодуються ROT13 перед відображенням.
+                        Паролі й хеші паролів у таблиці не показуються.
+                    </p>
+                </div>
+
+                <div class="table-toolbar">
+                    <label>
+                        Пошук користувача
+                        <input type="search" placeholder="Ім'я, прізвище або E-mail" data-user-search />
+                    </label>
+                    <strong data-user-count>Користувачів: 0</strong>
+                </div>
+
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Ім'я</th>
+                                <th scope="col">Прізвище</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Дата реєстрації</th>
+                            </tr>
+                        </thead>
+                        <tbody data-user-table>
+                            <tr><td colspan="5">Завантаження...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="status" data-admin-status role="status" aria-live="polite"></p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Коряченко Денис Вікторович • Шифрування даних <strong lang="en">web</strong></p>
+            <p>Написано на: <span lang="en">HTML • CSS • JS</span></p>
+        </footer>
+    </body>
+</html>

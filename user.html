@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Кабінет користувача • Шифрування даних</title>
+
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="data:," />
+        <script type="module" src="scripts/user.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <h1>Особистий кабінет</h1>
+
+            <nav class="page-nav" aria-label="Навігація">
+                <a href="user.html" aria-current="page">Кабінет</a>
+                <a href="../rot13/index.html">ROT13</a>
+                <button type="button" data-logout>Вийти</button>
+            </nav>
+
+            <div class="content-stack">
+                <section class="panel">
+                    <h2>Вітаємо, <span data-user-name>користувачу</span>!</h2>
+                    <p class="muted">Ваші реєстраційні дані:</p>
+                    <dl class="info-grid">
+                        <div class="info-item">
+                            <dt>Ім'я</dt>
+                            <dd data-user-first-name>—</dd>
+                        </div>
+                        <div class="info-item">
+                            <dt>Прізвище</dt>
+                            <dd data-user-last-name>—</dd>
+                        </div>
+                        <div class="info-item">
+                            <dt>E-mail</dt>
+                            <dd data-user-email>—</dd>
+                        </div>
+                        <div class="info-item">
+                            <dt>Дата реєстрації</dt>
+                            <dd data-user-created>—</dd>
+                        </div>
+                    </dl>
+                </section>
+
+                <section class="panel">
+                    <h2>Симетричне шифрування</h2>
+                    <p>
+                        Симетричне шифрування — це спосіб перетворення відкритого тексту у шифротекст,
+                        за якого для шифрування та розшифрування використовується один спільний секретний ключ.
+                    </p>
+                    <p>
+                        Відправник шифрує повідомлення за допомогою алгоритму та секретного ключа,
+                        після чого передає шифротекст одержувачу. Одержувач використовує той самий ключ,
+                        щоб відновити початкове повідомлення.
+                    </p>
+                    <pre class="code-block">C = E(K, M)
+M = D(K, C)</pre>
+                    <p>
+                        Де <code>M</code> — відкрите повідомлення, <code>C</code> — шифротекст,
+                        <code>K</code> — секретний ключ, <code>E</code> — функція шифрування,
+                        <code>D</code> — функція розшифрування.
+                    </p>
+                </section>
+
+                <section class="panel">
+                    <h2>Демонстрація ROT13</h2>
+                    <p>
+                        ROT13 — просте оборотне перетворення латинських літер зі зсувом на 13 позицій.
+                        Воно використовується в цій роботі для демонстрації перетворення даних,
+                        але не забезпечує криптографічної стійкості.
+                    </p>
+                    <a href="../rot13/index.html">Відкрити демонстрацію ROT13</a>
+                </section>
+            </div>
+            <p class="status" data-user-status role="status" aria-live="polite"></p>
+        </main>
+
+        <footer class="footer">
+            <p>Коряченко Денис Вікторович • Шифрування даних <strong lang="en">web</strong></p>
+            <p>Написано на: <span lang="en">HTML • CSS • JS</span></p>
+        </footer>
+    </body>
+</html>
