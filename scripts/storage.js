@@ -1,4 +1,4 @@
-import { rot13 } from "../../rot13/rot13.js";
+import { rot13 } from "../rot13/rot13.js";
 
 const USERS_KEY = "encryption-app.users.v1";
 
